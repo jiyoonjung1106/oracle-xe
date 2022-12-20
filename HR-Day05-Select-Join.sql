@@ -25,6 +25,11 @@ SELECT e.employee_id, e.last_name, e.department_id,
 FROM employees e JOIN departments d
 ON (e.department_id = d.department_id);
 
+SELECT e.employee_id, e.last_name, e.department_id,
+        d.department_id, d.location_id
+FROM employees e, departments d
+WHERE e.department_id = d.department_id;
+
 -- ON 절을 사용하여 3-Way 조인 생성
 SELECT employee_id, city, department_name
 FROM employees e
@@ -128,9 +133,28 @@ SELECT e.last_name, e.department_id, d.department_name
 FROM employees e RIGHT OUTER JOIN departments d
 ON (e.department_id = d. department_id);
 
+/*
+FULL OUTER JOIN
+  DEPARTMENTS, EMPLOYEES 대응되는 행이 없어도
+  테이블의 모든행을 검색합니다.
+*/
+SELECT e.last_name, e.department_id, d.department_name
+FROM employees e FULL OUTER JOIN departments d
+ON (e.department_id = d. department_id);    
+    
+/*
+Cartesian Product
+    조인 조건이 잘못되거나 완전히 생략된 경우 결과는 모든 행 조합이 표시되는 Cartesian Product로 나타납니다.
+*/
+/*
+Cross Join 생성
+    CROSS JOIN 절은 두 테이블의 교차 곱을 생성합니다.
+*/
+SELECT last_name, department_name
+FROM employees
+CROSS JOIN departments;
 
-    
-    
+
 
 
 
