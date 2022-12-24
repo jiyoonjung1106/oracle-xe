@@ -41,7 +41,7 @@ DEFINE 명령 사용
     DEFINE 명령 사용하여 변수 생성하고 값 할당합니다.
     UNDEFINE 명령 사용하여 변수 제거합니다.
 */
-DEFINE employee_num = 200
+DEFINE employee_num = 120
 
 SELECT employee_id, last_name, salary, department_id
 FROM employees
@@ -56,6 +56,11 @@ VERIFY 명령 사용
     표시를 토글합니다.
 */
 SET VERIFY ON
+SELECT employee_id, last_name, salary
+FROM employees
+WHERE employee_id = &employee_num;
+
+SET VERIFY OFF
 SELECT employee_id, last_name, salary
 FROM employees
 WHERE employee_id = &employee_num;
